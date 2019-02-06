@@ -12,6 +12,9 @@
 		310F019E220981BD00D37713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310F019C220981BD00D37713 /* Main.storyboard */; };
 		310F01A0220981BE00D37713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 310F019F220981BE00D37713 /* Assets.xcassets */; };
 		310F01A3220981BE00D37713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310F01A1220981BE00D37713 /* LaunchScreen.storyboard */; };
+		3169844B220AC08700CA5644 /* NearPerson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3169844A220AC08700CA5644 /* NearPerson.storyboard */; };
+		3169844F220AC0CE00CA5644 /* Talk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3169844E220AC0CE00CA5644 /* Talk.storyboard */; };
+		31698451220AC10E00CA5644 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31698450220AC10E00CA5644 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		310F019F220981BE00D37713 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		310F01A2220981BE00D37713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		310F01A4220981BE00D37713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3169844A220AC08700CA5644 /* NearPerson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NearPerson.storyboard; sourceTree = "<group>"; };
+		3169844E220AC0CE00CA5644 /* Talk.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Talk.storyboard; sourceTree = "<group>"; };
+		31698450220AC10E00CA5644 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				310F019F220981BE00D37713 /* Assets.xcassets */,
 				310F01A1220981BE00D37713 /* LaunchScreen.storyboard */,
 				310F01A4220981BE00D37713 /* Info.plist */,
+				3169844A220AC08700CA5644 /* NearPerson.storyboard */,
+				3169844E220AC0CE00CA5644 /* Talk.storyboard */,
+				31698450220AC10E00CA5644 /* Profile.storyboard */,
 			);
 			path = eeyann_front;
 			sourceTree = "<group>";
@@ -122,9 +131,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31698451220AC10E00CA5644 /* Profile.storyboard in Resources */,
 				310F01A3220981BE00D37713 /* LaunchScreen.storyboard in Resources */,
+				3169844B220AC08700CA5644 /* NearPerson.storyboard in Resources */,
 				310F01A0220981BE00D37713 /* Assets.xcassets in Resources */,
 				310F019E220981BD00D37713 /* Main.storyboard in Resources */,
+				3169844F220AC0CE00CA5644 /* Talk.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

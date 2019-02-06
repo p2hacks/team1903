@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="トーク" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-fW-nk9">
-                                <rect key="frame" x="161" y="323" width="52" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="大野 和也" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-fW-nk9">
+                                <rect key="frame" x="144" y="323" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,7 +29,7 @@
                         <constraints>
                             <constraint firstItem="4n7-fW-nk9" firstAttribute="centerX" secondItem="Hug-aw-MSw" secondAttribute="centerX" id="KoV-13-RXI"/>
                             <constraint firstItem="4n7-fW-nk9" firstAttribute="centerY" secondItem="Hug-aw-MSw" secondAttribute="centerY" id="LJi-U9-Ml5"/>
-                            <constraint firstItem="4n7-fW-nk9" firstAttribute="leading" secondItem="WLS-zi-eWU" secondAttribute="leading" constant="161" id="Oef-Re-itS"/>
+                            <constraint firstItem="4n7-fW-nk9" firstAttribute="leading" secondItem="WLS-zi-eWU" secondAttribute="leading" constant="144" id="Oef-Re-itS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WLS-zi-eWU"/>
                     </view>
@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcY-wE-Bw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="133"/>
+            <point key="canvasLocation" x="128.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>

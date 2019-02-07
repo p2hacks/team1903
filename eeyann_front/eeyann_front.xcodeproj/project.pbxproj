@@ -15,6 +15,8 @@
 		3169844B220AC08700CA5644 /* NearPerson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3169844A220AC08700CA5644 /* NearPerson.storyboard */; };
 		3169844F220AC0CE00CA5644 /* Talk.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3169844E220AC0CE00CA5644 /* Talk.storyboard */; };
 		31698451220AC10E00CA5644 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31698450220AC10E00CA5644 /* Profile.storyboard */; };
+		3176D87A220C0B1C00C61D5D /* IMG_5810.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 3176D879220C0B1C00C61D5D /* IMG_5810.JPG */; };
+		3176D87E220C0C2300C61D5D /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176D87D220C0C2300C61D5D /* MyProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		3169844A220AC08700CA5644 /* NearPerson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NearPerson.storyboard; sourceTree = "<group>"; };
 		3169844E220AC0CE00CA5644 /* Talk.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Talk.storyboard; sourceTree = "<group>"; };
 		31698450220AC10E00CA5644 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3176D879220C0B1C00C61D5D /* IMG_5810.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_5810.JPG; sourceTree = "<group>"; };
+		3176D87D220C0C2300C61D5D /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				3169844A220AC08700CA5644 /* NearPerson.storyboard */,
 				3169844E220AC0CE00CA5644 /* Talk.storyboard */,
 				31698450220AC10E00CA5644 /* Profile.storyboard */,
+				3176D879220C0B1C00C61D5D /* IMG_5810.JPG */,
+				3176D87D220C0C2300C61D5D /* MyProfile.swift */,
 			);
 			path = eeyann_front;
 			sourceTree = "<group>";
@@ -131,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3176D87A220C0B1C00C61D5D /* IMG_5810.JPG in Resources */,
 				31698451220AC10E00CA5644 /* Profile.storyboard in Resources */,
 				310F01A3220981BE00D37713 /* LaunchScreen.storyboard in Resources */,
 				3169844B220AC08700CA5644 /* NearPerson.storyboard in Resources */,
@@ -148,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				310F019B220981BD00D37713 /* ViewController.swift in Sources */,
+				3176D87E220C0C2300C61D5D /* MyProfile.swift in Sources */,
 				310F0199220981BD00D37713 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

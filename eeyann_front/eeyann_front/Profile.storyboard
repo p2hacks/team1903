@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FN2-04-V3K">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MOu-OH-3j9">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,35 +10,72 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--マイプロフィール-->
         <scene sceneID="pMv-Qu-E3g">
             <objects>
-                <viewController id="FN2-04-V3K" sceneMemberID="viewController">
+                <viewController id="FN2-04-V3K" customClass="MyProfile" customModule="eeyann_front" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tkr-jv-vnS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="猪飼 立晟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcW-NN-LJc">
-                                <rect key="frame" x="135" y="323" width="104" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="猪飼 立晟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcW-NN-LJc">
+                                <rect key="frame" x="135" y="358" width="144" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_5810.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="mX1-hQ-Kf4" userLabel="MyProfileImage">
+                                <rect key="frame" x="135" y="113" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mX1-hQ-Kf4" secondAttribute="height" multiplier="1:1" id="IaT-Y2-B6W"/>
+                                    <constraint firstAttribute="height" constant="150" id="RUI-vZ-w6e"/>
+                                    <constraint firstAttribute="width" constant="150" id="XNH-V2-RyQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WZM-R1-gDz" firstAttribute="trailing" secondItem="mX1-hQ-Kf4" secondAttribute="trailing" constant="129" id="2QE-qA-gmN"/>
+                            <constraint firstItem="mX1-hQ-Kf4" firstAttribute="leading" secondItem="dcW-NN-LJc" secondAttribute="leading" id="Dyq-zK-tIt"/>
+                            <constraint firstItem="mX1-hQ-Kf4" firstAttribute="top" secondItem="WZM-R1-gDz" secondAttribute="top" constant="49" id="FbU-5h-aTI"/>
                             <constraint firstItem="dcW-NN-LJc" firstAttribute="centerY" secondItem="tkr-jv-vnS" secondAttribute="centerY" id="Pzi-AP-nsj"/>
                             <constraint firstItem="dcW-NN-LJc" firstAttribute="leading" secondItem="WZM-R1-gDz" secondAttribute="leading" constant="135" id="Vgb-Ea-B8F"/>
                             <constraint firstItem="dcW-NN-LJc" firstAttribute="centerX" secondItem="tkr-jv-vnS" secondAttribute="centerX" id="skS-bU-exf"/>
+                            <constraint firstItem="dcW-NN-LJc" firstAttribute="top" secondItem="mX1-hQ-Kf4" secondAttribute="bottom" constant="95" id="sxO-wq-yQ5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WZM-R1-gDz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="Qdx-i1-d8B"/>
+                    <navigationItem key="navigationItem" title="マイプロフィール" id="qKx-uo-PPj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="MyProfileImage" destination="mX1-hQ-Kf4" id="ihq-Ik-VmF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4NZ-V3-LBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="98"/>
+            <point key="canvasLocation" x="1100" y="97.601199400299862"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="M9H-4b-Ftj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MOu-OH-3j9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="Qdx-i1-d8B"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KYU-Wu-hio">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FN2-04-V3K" kind="relationship" relationship="rootViewController" id="4hy-Jm-QzY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EOP-DM-xrt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="97.601199400299862"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="IMG_5810.JPG" width="3024" height="4032"/>
+    </resources>
 </document>

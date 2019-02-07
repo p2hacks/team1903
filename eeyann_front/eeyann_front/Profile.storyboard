@@ -18,12 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="猪飼 立晟" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcW-NN-LJc">
-                                <rect key="frame" x="135" y="358" width="144" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_5810.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="mX1-hQ-Kf4" userLabel="MyProfileImage">
                                 <rect key="frame" x="135" y="113" width="150" height="150"/>
                                 <constraints>
@@ -32,16 +26,19 @@
                                     <constraint firstAttribute="width" constant="150" id="XNH-V2-RyQ"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fRx-tZ-XzV">
+                                <rect key="frame" x="0.0" y="316" width="414" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WZM-R1-gDz" firstAttribute="trailing" secondItem="mX1-hQ-Kf4" secondAttribute="trailing" constant="129" id="2QE-qA-gmN"/>
-                            <constraint firstItem="mX1-hQ-Kf4" firstAttribute="leading" secondItem="dcW-NN-LJc" secondAttribute="leading" id="Dyq-zK-tIt"/>
+                            <constraint firstItem="fRx-tZ-XzV" firstAttribute="leading" secondItem="tkr-jv-vnS" secondAttribute="leading" id="4fV-tJ-SCL"/>
                             <constraint firstItem="mX1-hQ-Kf4" firstAttribute="top" secondItem="WZM-R1-gDz" secondAttribute="top" constant="49" id="FbU-5h-aTI"/>
-                            <constraint firstItem="dcW-NN-LJc" firstAttribute="centerY" secondItem="tkr-jv-vnS" secondAttribute="centerY" id="Pzi-AP-nsj"/>
-                            <constraint firstItem="dcW-NN-LJc" firstAttribute="leading" secondItem="WZM-R1-gDz" secondAttribute="leading" constant="135" id="Vgb-Ea-B8F"/>
-                            <constraint firstItem="dcW-NN-LJc" firstAttribute="centerX" secondItem="tkr-jv-vnS" secondAttribute="centerX" id="skS-bU-exf"/>
-                            <constraint firstItem="dcW-NN-LJc" firstAttribute="top" secondItem="mX1-hQ-Kf4" secondAttribute="bottom" constant="95" id="sxO-wq-yQ5"/>
+                            <constraint firstAttribute="bottom" secondItem="fRx-tZ-XzV" secondAttribute="bottom" id="OJZ-Wk-ra8"/>
+                            <constraint firstItem="fRx-tZ-XzV" firstAttribute="top" secondItem="mX1-hQ-Kf4" secondAttribute="bottom" constant="53" id="V1k-Q2-A25"/>
+                            <constraint firstAttribute="trailing" secondItem="fRx-tZ-XzV" secondAttribute="trailing" id="iAZ-kZ-QGh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WZM-R1-gDz"/>
                     </view>
@@ -49,11 +46,12 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="MyProfileImage" destination="mX1-hQ-Kf4" id="ihq-Ik-VmF"/>
+                        <outlet property="MyProfileTable" destination="fRx-tZ-XzV" id="z1F-Y4-qeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4NZ-V3-LBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="97.601199400299862"/>
+            <point key="canvasLocation" x="1098.5507246376812" y="97.010869565217405"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M9H-4b-Ftj">

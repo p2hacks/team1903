@@ -32,6 +32,7 @@ class MyProfile: UIViewController {
             forCellReuseIdentifier : reuseIdentifier
         )
         MyProfileTable.dataSource = self
+        MyProfileTable.delegate = self
         MyProfileTable.tableFooterView = UIView(frame: .zero)
     }
     
@@ -46,9 +47,35 @@ extension MyProfile: UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: reuseIdentifier)
         cell.textLabel?.text = items[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        switch  indexPath.row{
+        case 0:
+            cell.detailTextLabel?.text = "名前"
+        case 1:
+            cell.detailTextLabel?.text = "学年-クラス ・ コース"
+        case 2:
+            cell.detailTextLabel?.text = "出身地"
+        case 3:
+            cell.detailTextLabel?.text = "自己紹介"
+        default :
+            cell.detailTextLabel?.text = ""
+        }
         return cell
+    }
+}
+
+extension MyProfile: UITableViewDelegate {
+    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "toMyProfileNameController",sender: nil)
+        case 1:
+            print("a")
+        default :
+            print("error")
+        }
     }
 }
 

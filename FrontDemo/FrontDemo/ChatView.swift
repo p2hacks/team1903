@@ -1,5 +1,5 @@
 //
-//  PeerProfile.swift
+//  ChatView.swift
 //  FrontDemo
 //
 //  Created by 大野和也 on 2019/02/16.
@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class PeerProfile: UIViewController {
+class ChatView: UIViewController {
     
-    @IBOutlet weak var peerImage: UIImageView!
+    @IBOutlet weak var chatTableView: UITableView!
     
-    @IBOutlet weak var peerName: UILabel!
-    @IBOutlet weak var peerClassName: UILabel!
-    @IBOutlet weak var peerFromName: UILabel!
+    @IBOutlet weak var chatTextField: UITextField!
+    
+    @IBAction func sendChat(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         

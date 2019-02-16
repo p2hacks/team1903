@@ -18,7 +18,11 @@ class EditProfile: UIViewController {
     
     @IBOutlet weak var nameField: UITextField!
     
+    @IBOutlet weak var classLabel: UILabel!
+    
     @IBOutlet weak var classPicker: UIPickerView!
+    
+    @IBOutlet weak var fromLabel: UILabel!
     
     @IBOutlet weak var fromPicker: UIPickerView!
     

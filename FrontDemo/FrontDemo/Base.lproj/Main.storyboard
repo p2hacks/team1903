@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XXl-5g-Art">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,37 +10,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="Chat" id="BYZ-38-t0r" customClass="ViewController" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="68" y="125"/>
-        </scene>
         <!--Tutorial-->
         <scene sceneID="iiB-fU-MIg">
             <objects>
-                <viewController storyboardIdentifier="Tutorial" id="w8v-De-QXE" customClass="Tutorial" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tutorial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w8v-De-QXE" customClass="Tutorial" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3vv-Iu-7HA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-Rz-u91">
-                                <rect key="frame" x="0.0" y="28" width="375" height="639"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="581"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zO-q1-sR6">
+                                <rect key="frame" x="190" y="617" width="169" height="30"/>
+                                <state key="normal" title="チュートリアルを終わる"/>
+                                <connections>
+                                    <action selector="skipButton:" destination="w8v-De-QXE" eventType="touchUpInside" id="mUO-ej-kVK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4zO-q1-sR6" firstAttribute="trailing" secondItem="3vv-Iu-7HA" secondAttribute="trailingMargin" id="6yW-Dr-6e7"/>
+                            <constraint firstItem="4zO-q1-sR6" firstAttribute="top" secondItem="5gs-Rz-u91" secondAttribute="bottom" constant="8" symbolic="YES" id="F2j-cn-P4m"/>
                             <constraint firstItem="5gs-Rz-u91" firstAttribute="leading" secondItem="3vv-Iu-7HA" secondAttribute="leadingMargin" constant="-16" id="JV1-fz-uKf"/>
-                            <constraint firstAttribute="bottom" secondItem="5gs-Rz-u91" secondAttribute="bottom" id="f2a-JE-130"/>
+                            <constraint firstAttribute="bottom" secondItem="5gs-Rz-u91" secondAttribute="bottom" constant="58" id="f2a-JE-130"/>
                             <constraint firstItem="5gs-Rz-u91" firstAttribute="trailing" secondItem="3vv-Iu-7HA" secondAttribute="trailingMargin" constant="16" id="nKf-gJ-76o"/>
                             <constraint firstItem="5gs-Rz-u91" firstAttribute="top" secondItem="s52-Rv-yIY" secondAttribute="top" constant="8" id="tQY-PD-m6F"/>
                         </constraints>
@@ -52,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klU-lZ-2XN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="125"/>
+            <point key="canvasLocation" x="804" y="124.58770614692655"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="q17-sP-jvd">
@@ -89,18 +83,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cNum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCF-H6-QNR">
-                                <rect key="frame" x="81" y="384" width="46" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCF-H6-QNR">
+                                <rect key="frame" x="81" y="384" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-XQ-GzC">
-                                <rect key="frame" x="135" y="355" width="43" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="BdA-ho-yoL"/>
-                                </constraints>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出身地 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R60-vl-L7n">
                                 <rect key="frame" x="16" y="486" width="62" height="21"/>
                                 <constraints>
@@ -129,6 +117,12 @@
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mj-YW-d4f">
                                 <rect key="frame" x="144" y="456" width="82" height="80"/>
                             </pickerView>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eXt-XQ-GzC">
+                                <rect key="frame" x="137" y="354" width="43" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="BdA-ho-yoL"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -148,7 +142,7 @@
                             <constraint firstItem="0An-Da-ZNB" firstAttribute="trailing" secondItem="2mj-YW-d4f" secondAttribute="trailing" constant="149" id="HcS-kl-e2m"/>
                             <constraint firstItem="R60-vl-L7n" firstAttribute="firstBaseline" secondItem="RfN-dN-3Yl" secondAttribute="firstBaseline" id="LCm-uI-zov"/>
                             <constraint firstItem="lzE-hk-Ira" firstAttribute="leading" secondItem="0An-Da-ZNB" secondAttribute="leading" constant="112" id="R8m-I0-G5D"/>
-                            <constraint firstItem="0An-Da-ZNB" firstAttribute="bottom" secondItem="eXt-XQ-GzC" secondAttribute="bottom" constant="232" id="Ta1-qa-qAg"/>
+                            <constraint firstItem="0An-Da-ZNB" firstAttribute="bottom" secondItem="eXt-XQ-GzC" secondAttribute="bottom" constant="233" id="Ta1-qa-qAg"/>
                             <constraint firstItem="R60-vl-L7n" firstAttribute="baseline" secondItem="RfN-dN-3Yl" secondAttribute="baseline" id="UFw-JW-rCs"/>
                             <constraint firstItem="lzE-hk-Ira" firstAttribute="centerX" secondItem="ZWm-oW-W0z" secondAttribute="centerX" id="WRm-LX-K9i"/>
                             <constraint firstItem="ZWm-oW-W0z" firstAttribute="top" secondItem="lzE-hk-Ira" secondAttribute="bottom" constant="20" id="anE-Ea-xsV"/>
@@ -158,7 +152,7 @@
                             <constraint firstItem="RfN-dN-3Yl" firstAttribute="centerY" secondItem="2mj-YW-d4f" secondAttribute="centerY" id="mE9-oV-Dzi"/>
                             <constraint firstItem="05v-rY-JsP" firstAttribute="top" secondItem="ZWm-oW-W0z" secondAttribute="bottom" constant="19" id="mmY-uz-Gsa"/>
                             <constraint firstAttribute="trailing" secondItem="dVz-VU-DgI" secondAttribute="trailing" id="oEg-Z7-WQD"/>
-                            <constraint firstItem="eXt-XQ-GzC" firstAttribute="leading" secondItem="cCF-H6-QNR" secondAttribute="trailing" constant="8" symbolic="YES" id="oot-gf-tVW"/>
+                            <constraint firstItem="eXt-XQ-GzC" firstAttribute="leading" secondItem="cCF-H6-QNR" secondAttribute="trailing" constant="1" id="oot-gf-tVW"/>
                             <constraint firstItem="Euo-yB-ASf" firstAttribute="firstBaseline" secondItem="cCF-H6-QNR" secondAttribute="firstBaseline" constant="1" id="pzT-Sq-xJp"/>
                             <constraint firstItem="9Wf-L4-YCA" firstAttribute="leading" secondItem="87J-7N-fZv" secondAttribute="leadingMargin" id="qr3-nQ-rRW"/>
                             <constraint firstItem="R60-vl-L7n" firstAttribute="top" secondItem="Euo-yB-ASf" secondAttribute="bottom" constant="80" id="r8u-FL-gI8"/>
@@ -169,7 +163,9 @@
                         <viewLayoutGuide key="safeArea" id="0An-Da-ZNB"/>
                     </view>
                     <connections>
+                        <outlet property="classLabel" destination="cCF-H6-QNR" id="vHI-T1-8NE"/>
                         <outlet property="classPicker" destination="eXt-XQ-GzC" id="VOS-9T-hEa"/>
+                        <outlet property="fromLabel" destination="RfN-dN-3Yl" id="Hy2-x1-ic0"/>
                         <outlet property="fromPicker" destination="2mj-YW-d4f" id="clE-XP-BFT"/>
                         <outlet property="nameField" destination="05v-rY-JsP" id="CYI-6b-vXB"/>
                         <outlet property="profileImage" destination="lzE-hk-Ira" id="bRC-lI-h5c"/>
@@ -276,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="2261.5999999999999" y="124.58770614692655"/>
         </scene>
-        <!--Chat View-->
+        <!--View Controller-->
         <scene sceneID="wf6-kZ-AL8">
             <objects>
-                <viewController id="XXl-5g-Art" customClass="ChatView" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Chat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XXl-5g-Art" customClass="ViewController" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gyn-qm-77N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -307,7 +303,7 @@
                                 </constraints>
                                 <state key="normal" title="送信"/>
                                 <connections>
-                                    <action selector="sendChat:" destination="XXl-5g-Art" eventType="touchUpInside" id="c9k-DD-exb"/>
+                                    <action selector="sendChat:" destination="XXl-5g-Art" eventType="touchUpInside" id="s9L-f3-VxZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -329,14 +325,13 @@
                         <viewLayoutGuide key="safeArea" id="Ex4-MQ-uQl"/>
                     </view>
                     <connections>
-                        <outlet property="chatTable" destination="roF-sq-Auz" id="bjh-Wb-lzc"/>
-                        <outlet property="chatTableView" destination="roF-sq-Auz" id="ncd-VA-ATc"/>
-                        <outlet property="chatTextField" destination="YZe-9T-pKs" id="Mun-Nu-UCk"/>
+                        <outlet property="chatTableView" destination="roF-sq-Auz" id="CHe-CM-iYJ"/>
+                        <outlet property="chatTextField" destination="YZe-9T-pKs" id="u9T-Lm-23W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNw-Ys-oPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2973.5999999999999" y="124.58770614692655"/>
+            <point key="canvasLocation" x="108" y="125"/>
         </scene>
     </scenes>
 </document>

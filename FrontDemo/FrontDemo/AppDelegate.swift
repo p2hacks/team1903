@@ -12,10 +12,32 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    func gotoMainStoryBoard(){
+        //let flg = false//分岐条件
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        let storyboard:UIStoryboard = UIStoryboard(name: "Main",bundle:nil)
+        let viewController:UIViewController
+        
+        //表示するビューコントローラーを指定
+        if launchedBefore {
+            viewController = storyboard.instantiateViewController(withIdentifier: "Chat") as UIViewController
+        } else {
+            viewController = storyboard.instantiateViewController(withIdentifier: "Tutorial") as UIViewController
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        
+        window?.rootViewController = viewController
+    }
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        gotoMainStoryBoard()
+        
         return true
     }
 

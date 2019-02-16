@@ -77,10 +77,10 @@
                                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="更新"/>
+                                                <connections>
+                                                    <action selector="updateData:" destination="hVX-zJ-lm9" eventType="touchUpInside" id="mFu-Xf-K0T"/>
+                                                </connections>
                                             </button>
-                                            <connections>
-                                                <action selector="updateData:" destination="hVX-zJ-lm9" id="1V0-hL-adv"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>

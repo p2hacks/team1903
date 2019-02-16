@@ -23,9 +23,11 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         }
     }
     
-    
-    @IBAction func updateData(_ sender: Any) {
+    @IBAction func updateData(_ sender: UIButton) {
+        
     }
+    
+    
     
     @IBAction func moveChat(_ sender: UIButton) {
         let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "Chat") as! ViewController

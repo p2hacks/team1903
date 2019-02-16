@@ -118,7 +118,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         nameField.keyboardType = UIKeyboardType.default
         
         self.nameFieldString = SendData.sendName()
-        self.profileImage.image = SendData.sendImage()
+        //self.profileImage.image = SendData.sendImage()
     }
     
     override func didReceiveMemoryWarning() {

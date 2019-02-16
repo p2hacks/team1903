@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   post "posts/request" => "request#hello"
   
   get "chats/index" => "chatget#index"
-  get "chats/:id1/:id2/get" => "chatget#room1"
-  get "chats/:id2/:id3/get" => "chatget#room2"
-  get "chats/:id3/:id1/get" => "chatget#room3"
+  get "chats/:room_id/get" => "chatget#room_id"
 
   post "chats/post" => "chatpost#room"
   post "chats/:id1/:id2/post" => "chatpost#room1"

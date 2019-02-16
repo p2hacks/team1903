@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   get "chats/:room_id/get" => "chatget#room_id"
 
   post "chats/post" => "chatpost#room"
-  post "chats/:id1/:id2/post" => "chatpost#room1"
-  post "chats/:id2/:id3/post" => "chatpost#room2"
-  post "chats/:id3/:id1/post" => "chatpost#room3"
+  post "chats/:user_id/:room_id/post" => "chatpost#room_id"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

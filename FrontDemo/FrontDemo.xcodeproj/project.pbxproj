@@ -16,6 +16,7 @@
 		31FB247C2217D585005B5284 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FB247A2217D585005B5284 /* Main.storyboard */; };
 		31FB247E2217D586005B5284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FB247D2217D586005B5284 /* Assets.xcassets */; };
 		31FB24812217D586005B5284 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31FB247F2217D586005B5284 /* LaunchScreen.storyboard */; };
+		9D43466322185A3500B6FF19 /* KeepData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D43466222185A3500B6FF19 /* KeepData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		31FB247D2217D586005B5284 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31FB24802217D586005B5284 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31FB24822217D586005B5284 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D43466222185A3500B6FF19 /* KeepData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				31FB24782217D585005B5284 /* ViewController.swift */,
 				09779D1F2217E05200758E13 /* Tutorial.swift */,
 				09779D232217E70D00758E13 /* EditProfile.swift */,
+				9D43466222185A3500B6FF19 /* KeepData.swift */,
 				09779D252217FADB00758E13 /* PeerProfile.swift */,
 				31FB247A2217D585005B5284 /* Main.storyboard */,
 				31FB247D2217D586005B5284 /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 				09779D202217E05200758E13 /* Tutorial.swift in Sources */,
 				31FB24772217D585005B5284 /* AppDelegate.swift in Sources */,
 				09779D262217FADB00758E13 /* PeerProfile.swift in Sources */,
+				9D43466322185A3500B6FF19 /* KeepData.swift in Sources */,
 				09779D242217E70D00758E13 /* EditProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

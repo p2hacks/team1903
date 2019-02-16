@@ -61,6 +61,8 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     
     @IBOutlet weak var fromPicker: UIPickerView!
     
+    var nameFieldString = ""
+    
     let Datalist1 = ["A","B","C","D","E","F","G","H","I","J","K","L"]
     
     let Datalist2 = ["北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県",
@@ -113,9 +115,17 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     
     //完了を押すとkeyboardを閉じる処理
     func textFieldShouldReturn(_ nameField: UITextField) -> Bool {
+        nameFieldString = nameField.text!
         
+        func sendName(_ sender: Any) {
+            try? nameFieldString.write(to: fileURL,atomically: true,encoding: .utf8)
+            
+        }
+
         //Keyboardを閉じる
         nameField.resignFirstResponder()
+        
+        nameField.text = ""
         
         return true
         
@@ -166,10 +176,10 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
         // ビューに表示する
-        guard let _:UIImage = image, let _ = image.pngData() else {
+        guard let _:UIImage = image, let data = image.pngData() else {
             return
         }
-        //try? data.write(to: imageUR)
+        try? data.write(to: imageURL)
         self.profileImage.image = image
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)

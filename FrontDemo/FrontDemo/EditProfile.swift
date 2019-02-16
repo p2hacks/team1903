@@ -26,15 +26,15 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
 
     
     @IBAction func updateData(_ sender: UIButton) {
-        print(fileURL)
-        print(fileCnameURL)
+        //print(fileURL)
+        //print(fileCnameURL)
         try? nameField.text?.write(to :fileURL, atomically: true, encoding: .utf8)
-        print(nameField.text!)
-        print(SendData.sendName() + "1")
+        //print(nameField.text!)
+        //print(SendData.sendName() + "1")
         try? classLabel.text?.write(to :fileCnameURL, atomically: true, encoding: .utf8)
-        print(SendData.sendName() + "2")
+        //print(SendData.sendName() + "2")
         try? fromLabel.text?.write(to :fileFnameURL, atomically: true, encoding: .utf8)
-        print(SendData.sendName() + "3")
+        //print(SendData.sendName() + "3")
         // "更新"を押したらキーボード消える
         nameField.endEditing(true)
     }
@@ -92,7 +92,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         super.viewDidLoad()
         
-        print(SendData.sendName())
+        //print(SendData.sendName())
         
         classPicker.delegate = self
         
@@ -128,6 +128,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         nameField.keyboardType = UIKeyboardType.default
         //self.profileImage.image = SendData.sendImage()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -202,6 +203,11 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         }
         try? data.write(to: imageURL)
         self.profileImage.image = image
+        
+        
+        profileImage.layer.cornerRadius = 50
+        profileImage.clipsToBounds = true
+        
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)
     }

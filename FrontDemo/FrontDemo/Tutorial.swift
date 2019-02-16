@@ -13,6 +13,9 @@ class Tutorial: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBAction func skipButton(_ sender: Any) {
+    }
+    
     // ScrollScreenの高さ
     var scrollScreenHeight: CGFloat!
     // ScrollScreenの幅

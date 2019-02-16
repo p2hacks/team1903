@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    /*
     @IBOutlet weak var scrollView: UIScrollView!
     
     // ScrollScreenの高さ
@@ -96,5 +97,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    */
 }

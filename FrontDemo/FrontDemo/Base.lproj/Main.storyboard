@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tutorial-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Chat" id="BYZ-38-t0r" customClass="Tutorial" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Chat" id="BYZ-38-t0r" customClass="ViewController" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,15 +25,15 @@
             </objects>
             <point key="canvasLocation" x="68" y="125"/>
         </scene>
-        <!--View Controller-->
+        <!--Tutorial-->
         <scene sceneID="iiB-fU-MIg">
             <objects>
-                <viewController storyboardIdentifier="Tutorial" id="w8v-De-QXE" customClass="ViewController" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Tutorial" id="w8v-De-QXE" customClass="Tutorial" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3vv-Iu-7HA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-Rz-u91">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gs-Rz-u91">
                                 <rect key="frame" x="0.0" y="28" width="375" height="639"/>
                             </scrollView>
                         </subviews>
@@ -47,12 +47,12 @@
                         <viewLayoutGuide key="safeArea" id="s52-Rv-yIY"/>
                     </view>
                     <connections>
-                        <outlet property="scrollView" destination="5gs-Rz-u91" id="Ufa-sm-YuN"/>
+                        <outlet property="scrollView" destination="5gs-Rz-u91" id="Cu8-Q7-4YO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klU-lZ-2XN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773.60000000000002" y="124.58770614692655"/>
+            <point key="canvasLocation" x="804" y="125"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="q17-sP-jvd">

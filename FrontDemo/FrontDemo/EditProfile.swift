@@ -67,6 +67,18 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         super.viewDidLoad()
         
+        classPicker.delegate = self
+        
+        fromPicker.delegate = self
+        
+        classPicker.dataSource = self
+        
+        fromPicker.dataSource = self
+        
+        classLabel.text = "選択"
+        
+        fromLabel.text = "選択"
+        
         nameField.delegate = self
         //delegateを自身に設定
         

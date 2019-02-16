@@ -13,7 +13,21 @@ class ChatpostController < ApplicationController
     else
       personal = {'status' => 500}
     end
+    render :json => personal
+  end
 
+  def room_id
+    json_request = JSON.parse(request.body.read, {:symbolize_names => true})
+    if !json_request.blank?
+      post = Chat.new
+      post.user_id = params[:user_id]
+      post.room_id = params[:room_id]
+      post.content = json_request[:content]
+      post.save
+      personal = json_request
+    else
+      personal = {'status' => 500}
+    end
     render :json => personal
   end
 end

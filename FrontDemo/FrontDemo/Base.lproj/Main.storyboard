@@ -26,6 +26,7 @@
                                 <state key="normal" title="チュートリアルを終わる"/>
                                 <connections>
                                     <action selector="skipButton:" destination="w8v-De-QXE" eventType="touchUpInside" id="mUO-ej-kVK"/>
+                                    <segue destination="hVX-zJ-lm9" kind="presentation" id="gga-SD-LGJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,6 +163,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0An-Da-ZNB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xHt-61-bML"/>
                     <connections>
                         <outlet property="classLabel" destination="cCF-H6-QNR" id="vHI-T1-8NE"/>
                         <outlet property="classPicker" destination="eXt-XQ-GzC" id="VOS-9T-hEa"/>

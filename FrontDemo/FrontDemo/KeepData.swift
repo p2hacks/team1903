@@ -14,7 +14,7 @@ var fileURL: URL {
         for: .documentDirectory,
         in: .userDomainMask
         )[0]
-    return docsURL.appendingPathComponent("file.txt")
+    return docsURL.appendingPathComponent("nfile.txt")
 }
 
 var fileCnameURL: URL {
@@ -22,7 +22,7 @@ var fileCnameURL: URL {
         for: .documentDirectory,
         in: .userDomainMask
         )[0]
-    return docsURL.appendingPathComponent("file.txt")
+    return docsURL.appendingPathComponent("cfile.txt")
 }
 
 
@@ -31,7 +31,7 @@ var fileFnameURL: URL {
         for: .documentDirectory,
         in: .userDomainMask
         )[0]
-    return docsURL.appendingPathComponent("file.txt")
+    return docsURL.appendingPathComponent("ffile.txt")
 }
 
 var imageURL: URL {
@@ -44,9 +44,21 @@ var imageURL: URL {
 
 var sendData: SendData = SendData()
 
-class SendData{
+ class SendData{
     class func sendName() -> String {
         let file_name: String? = try? String(contentsOf: fileURL)
+        let name = (file_name != nil && file_name != "") ? file_name! : "noname"
+        return name
+    }
+    
+    class func sendClass() -> String {
+        let file_name: String? = try? String(contentsOf: fileCnameURL)
+        let name = (file_name != nil && file_name != "") ? file_name! : "noname"
+        return name
+    }
+    
+    class func sendFrom() -> String {
+        let file_name: String? = try? String(contentsOf: fileFnameURL)
         let name = (file_name != nil && file_name != "") ? file_name! : "noname"
         return name
     }

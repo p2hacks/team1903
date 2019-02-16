@@ -26,7 +26,17 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
 
     
     @IBAction func updateData(_ sender: UIButton) {
-
+        print(fileURL)
+        print(fileCnameURL)
+        try? nameField.text?.write(to :fileURL, atomically: true, encoding: .utf8)
+        print(nameField.text!)
+        print(SendData.sendName() + "1")
+        try? classLabel.text?.write(to :fileCnameURL, atomically: true, encoding: .utf8)
+        print(SendData.sendName() + "2")
+        try? fromLabel.text?.write(to :fileFnameURL, atomically: true, encoding: .utf8)
+        print(SendData.sendName() + "3")
+        // "更新"を押したらキーボード消える
+        nameField.endEditing(true)
     }
     
     
@@ -65,7 +75,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     
     @IBOutlet weak var fromPicker: UIPickerView!
     
-    var nameFieldString = ""
+    //classLabel.text? = S
     
     let Datalist1 = ["A","B","C","D","E","F","G","H","I","J","K","L"]
     
@@ -82,6 +92,8 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         super.viewDidLoad()
         
+        print(SendData.sendName())
+        
         classPicker.delegate = self
         
         fromPicker.delegate = self
@@ -90,9 +102,9 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         fromPicker.dataSource = self
         
-        classLabel.text = "選択"
+        //classLabel.text = "選択"
         
-        fromLabel.text = "選択"
+        //fromLabel.text = "選択"
         
         nameField.delegate = self
         //delegateを自身に設定
@@ -103,15 +115,18 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         nameField.returnKeyType = .done
         //改行ボタンを完了ボタンに変更
         
-        nameField.placeholder = "入力してください"
+        //nameField.placeholder = "入力してください"
+        nameField.text = SendData.sendName()
+        
+        classLabel.text = SendData.sendClass()
+        
+        fromLabel.text = SendData.sendFrom()
         //文字が何も入力されていない時に表示される文字
         
         self.view.addSubview(nameField)
         //viewにtextfieldをsubviewとして追加
         
         nameField.keyboardType = UIKeyboardType.default
-        
-        self.nameFieldString = SendData.sendName()
         //self.profileImage.image = SendData.sendImage()
     }
     
@@ -122,12 +137,13 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     
     //完了を押すとkeyboardを閉じる処理
     func textFieldShouldReturn(_ nameField: UITextField) -> Bool {
-        nameFieldString = nameField.text!
-        
+        /*
         func sendName(_ sender: Any) {
-            try? nameFieldString.write(to: fileURL,atomically: true,encoding: .utf8)
+            try? nameField.text!.write(to: fileURL,atomically: true,encoding: .utf8)
+            print(nameField.text!)
             
         }
+        */
 
         //Keyboardを閉じる
         nameField.resignFirstResponder()

@@ -23,8 +23,10 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         }
     }
     
+
+    
     @IBAction func updateData(_ sender: UIButton) {
-        
+
     }
     
     
@@ -108,6 +110,9 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         //viewにtextfieldをsubviewとして追加
         
         nameField.keyboardType = UIKeyboardType.default
+        
+        self.nameFieldString = SendData.sendName()
+        //self.profileImage.image = SendData.sendImage()
     }
     
     override func didReceiveMemoryWarning() {
@@ -185,3 +190,38 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         self.dismiss(animated: true)
     }
 }
+
+/*struct UserData{
+    let : String
+    let image: UIImage?
+}
+
+extension UserData: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case title
+        case image
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        title = try values.decode(String.self, forKey: .title)
+        
+        let imageDataBase64String = try values.decode(String.self, forKey: .image)
+        if let data = Data(base64Encoded: imageDataBase64String) {
+            image = UIImage(data: data)
+        } else {
+            image = nil
+        }
+    }
+}
+extension UserData: Encodable {
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(title, forKey: .title)
+        
+        if let image = image, let imageData = image.pngData() {
+            let imageDataBase64String = imageData.base64EncodedString()
+            try container.encode(imageDataBase64String, forKey: .image)
+        }
+    }
+}*/

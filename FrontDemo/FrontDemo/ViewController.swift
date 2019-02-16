@@ -14,7 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var chatTextField: UITextField!
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+    }
+    
+    
+    @IBAction func moveEditProfile(_ sender: UIButton) {
+        let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "EditProfile") as! EditProfile
+        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
     

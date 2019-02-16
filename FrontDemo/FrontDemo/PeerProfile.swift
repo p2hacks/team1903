@@ -17,6 +17,13 @@ class PeerProfile: UIViewController {
     @IBOutlet weak var peerClassName: UILabel!
     @IBOutlet weak var peerFromName: UILabel!
     
+    @IBAction func moveChat(_ sender: UIButton) {
+        let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "Chat") as! ViewController
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         
     }

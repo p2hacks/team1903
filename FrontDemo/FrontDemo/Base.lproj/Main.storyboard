@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XXl-5g-Art">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JMD-VR-ALg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,12 +47,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klU-lZ-2XN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="124.58770614692655"/>
+            <point key="canvasLocation" x="1754" y="125"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="q17-sP-jvd">
             <objects>
-                <viewController id="hVX-zJ-lm9" customClass="EditProfile" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditProfile" id="hVX-zJ-lm9" customClass="EditProfile" customModule="FrontDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="87J-7N-fZv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,29 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVz-VU-DgI">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="プロフィール編集" id="f0U-Rb-e8a"/>
+                                    <navigationItem title="プロフィール編集" id="f0U-Rb-e8a">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="maJ-OR-YUh">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LdR-SZ-6eb">
+                                                <rect key="frame" x="16" y="7" width="92" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="チャット画面"/>
+                                                <connections>
+                                                    <action selector="moveChat:" destination="hVX-zJ-lm9" eventType="touchUpInside" id="iba-cb-ALD"/>
+                                                    <segue destination="XXl-5g-Art" kind="show" id="PRf-gI-a5x"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="tYt-RF-VBU">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cT2-jf-dP7">
+                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="更新"/>
+                                            </button>
+                                            <connections>
+                                                <action selector="updateData:" destination="hVX-zJ-lm9" id="1V0-hL-adv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wf-L4-YCA">
@@ -175,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cs4-Nn-v9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1532" y="124.58770614692655"/>
+            <point key="canvasLocation" x="2471.1999999999998" y="124.58770614692655"/>
         </scene>
         <!--Peer Profile-->
         <scene sceneID="HyU-IC-ny8">
@@ -188,7 +210,19 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojq-iW-L1y">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="プロフィール" id="7Ly-ts-Gje"/>
+                                    <navigationItem title="プロフィール" id="7Ly-ts-Gje">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="W6T-eH-YN0">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aAy-v2-p6W">
+                                                <rect key="frame" x="16" y="7" width="92" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="チャット画面"/>
+                                                <connections>
+                                                    <action selector="moveChat:" destination="avP-yd-NYb" eventType="touchUpInside" id="pNx-bD-1lg"/>
+                                                    <segue destination="XXl-5g-Art" kind="show" id="MpX-vf-PAF"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="プロフィール画像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6G-EQ-HBw">
@@ -272,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Js2-ZZ-gfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2261.5999999999999" y="124.58770614692655"/>
+            <point key="canvasLocation" x="3200.8000000000002" y="124.58770614692655"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wf6-kZ-AL8">
@@ -285,7 +319,19 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BH-Ur-eo8">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="アプリタイトル" id="EKR-dM-4wL"/>
+                                    <navigationItem title="アプリタイトル" id="EKR-dM-4wL">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="lic-hf-CVf">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uhR-op-paQ">
+                                                <rect key="frame" x="236" y="7" width="123" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="プロフィール編集"/>
+                                                <connections>
+                                                    <action selector="moveEditProfile:" destination="XXl-5g-Art" eventType="touchUpInside" id="DoI-a0-Pno"/>
+                                                    <segue destination="hVX-zJ-lm9" kind="show" id="SSf-DB-JVh"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="roF-sq-Auz">
@@ -326,6 +372,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ex4-MQ-uQl"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ye5-b8-jgm"/>
                     <connections>
                         <outlet property="chatTableView" destination="roF-sq-Auz" id="CHe-CM-iYJ"/>
                         <outlet property="chatTextField" destination="YZe-9T-pKs" id="u9T-Lm-23W"/>
@@ -333,7 +380,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNw-Ys-oPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="125"/>
+            <point key="canvasLocation" x="1047.2" y="124.58770614692655"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ozH-VV-c2x">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JMD-VR-ALg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XHQ-EL-ckN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XXl-5g-Art" kind="relationship" relationship="rootViewController" id="6Hn-TV-f54"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NyS-gK-WUo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="108" y="124.58770614692655"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PRf-gI-a5x"/>
+        <segue reference="SSf-DB-JVh"/>
+    </inferredMetricsTieBreakers>
 </document>

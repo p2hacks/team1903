@@ -22,7 +22,16 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
             return Datalist2.count
         }
     }
-        
+    
+    
+    @IBAction func updateData(_ sender: Any) {
+    }
+    
+    @IBAction func moveChat(_ sender: UIButton) {
+        let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "Chat") as! ViewController
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
     
     
     @IBOutlet weak var profileImage: UIImageView!

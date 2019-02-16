@@ -1,0 +1,2 @@
+module ChatpostHelper
+end

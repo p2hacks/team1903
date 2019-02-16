@@ -26,11 +26,15 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
 
     
     @IBAction func updateData(_ sender: UIButton) {
+        print(fileURL)
+        print(fileCnameURL)
         try? nameField.text?.write(to :fileURL, atomically: true, encoding: .utf8)
         print(nameField.text!)
-        print(SendData.sendName())
+        print(SendData.sendName() + "1")
         try? classLabel.text?.write(to :fileCnameURL, atomically: true, encoding: .utf8)
+        print(SendData.sendName() + "2")
         try? fromLabel.text?.write(to :fileFnameURL, atomically: true, encoding: .utf8)
+        print(SendData.sendName() + "3")
         // "更新"を押したらキーボード消える
         nameField.endEditing(true)
     }
@@ -98,9 +102,9 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         fromPicker.dataSource = self
         
-        classLabel.text = "選択"
+        //classLabel.text = "選択"
         
-        fromLabel.text = "選択"
+        //fromLabel.text = "選択"
         
         nameField.delegate = self
         //delegateを自身に設定
@@ -113,6 +117,10 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         //nameField.placeholder = "入力してください"
         nameField.text = SendData.sendName()
+        
+        classLabel.text = SendData.sendClass()
+        
+        fromLabel.text = SendData.sendFrom()
         //文字が何も入力されていない時に表示される文字
         
         self.view.addSubview(nameField)

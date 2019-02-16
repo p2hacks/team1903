@@ -26,12 +26,6 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
 
     
     @IBAction func updateData(_ sender: UIButton) {
-        try? nameField.text?.write(to :fileURL, atomically: true, encoding: .utf8)
-        try? classLabel.text?.write(to :fileCnameURL, atomically: true, encoding: .utf8)
-        try? fromLabel.text?.write(to :fileFnameURL, atomically: true, encoding: .utf8)
-        
-        // "更新"を押したらキーボード消える
-        nameField.endEditing(true)
 
     }
     

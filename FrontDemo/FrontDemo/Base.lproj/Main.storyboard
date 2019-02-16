@@ -58,13 +58,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Wf-L4-YCA">
-                                <rect key="frame" x="16" y="306" width="44" height="21"/>
+                                <rect key="frame" x="16" y="350" width="44" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="05v-rY-JsP">
-                                <rect key="frame" x="68" y="301.5" width="140" height="30"/>
+                                <rect key="frame" x="68" y="345.5" width="140" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -91,10 +91,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lzE-hk-Ira">
-                                <rect key="frame" x="112" y="83" width="151" height="149.5"/>
+                                <rect key="frame" x="112" y="127" width="151" height="149.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWm-oW-W0z">
-                                <rect key="frame" x="149" y="252.5" width="77" height="30"/>
+                                <rect key="frame" x="149" y="296.5" width="77" height="30"/>
                                 <state key="normal" title="画像の選択"/>
                                 <connections>
                                     <action selector="selectImage:" destination="hVX-zJ-lm9" eventType="touchUpInside" id="kyq-l5-vcS"/>
@@ -119,7 +119,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVz-VU-DgI">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="プロフィール編集" id="f0U-Rb-e8a">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="maJ-OR-YUh">
@@ -316,7 +316,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BH-Ur-eo8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="アプリタイトル" id="EKR-dM-4wL">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="lic-hf-CVf">
@@ -334,7 +334,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="roF-sq-Auz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="526"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZe-9T-pKs">
@@ -401,7 +401,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="MpX-vf-PAF"/>
+        <segue reference="6Hn-TV-f54"/>
         <segue reference="SSf-DB-JVh"/>
     </inferredMetricsTieBreakers>
 </document>

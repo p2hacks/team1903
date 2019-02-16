@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 var fileURL: URL {
     let docsURL = FileManager.default.urls(
         for: .documentDirectory,
@@ -40,6 +41,8 @@ var imageURL: URL {
         )[0]
     return docsURL.appendingPathComponent("file.png")
 }
+
+var sendData: SendData = SendData()
 
 class SendData{
     class func sendName() -> String {

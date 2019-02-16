@@ -125,8 +125,6 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         //Keyboardを閉じる
         nameField.resignFirstResponder()
         
-        nameField.text = ""
-        
         return true
         
     }

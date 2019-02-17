@@ -25,7 +25,6 @@ var fileCnameURL: URL {
     return docsURL.appendingPathComponent("cfile.txt")
 }
 
-
 var fileFnameURL: URL {
     let docsURL = FileManager.default.urls(
         for: .documentDirectory,
@@ -33,7 +32,6 @@ var fileFnameURL: URL {
         )[0]
     return docsURL.appendingPathComponent("ffile.txt")
 }
-
 var imageURL: URL {
     let docsURL = FileManager.default.urls(
         for: .documentDirectory,
@@ -41,10 +39,8 @@ var imageURL: URL {
         )[0]
     return docsURL.appendingPathComponent("file.png")
 }
-
 var sendData: SendData = SendData()
-
- class SendData{
+class SendData{
     class func sendName() -> String {
         let file_name: String? = try? String(contentsOf: fileURL)
         let name = (file_name != nil && file_name != "") ? file_name! : "noname"
@@ -65,7 +61,7 @@ var sendData: SendData = SendData()
     
     class func sendImage() -> UIImage {
         let file_image: UIImage? = UIImage(contentsOfFile: imageURL.path)
-        let image = (file_image != nil) ? file_image! : UIImage(named: "Image")!
+        let image = (file_image != nil) ? file_image! : UIImage(named: "default_image")!
         return image
     }
 }

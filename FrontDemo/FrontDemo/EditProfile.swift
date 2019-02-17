@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-
-class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate{
+import MultipeerConnectivity
+class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -17,24 +17,32 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == classPicker{
             return Datalist1.count
-    }
+        }
         else{
             return Datalist2.count
         }
     }
     
-
     
     @IBAction func updateData(_ sender: UIButton) {
-        //print(fileURL)
-        //print(fileCnameURL)
+        print(fileURL)
+        print(fileCnameURL)
         try? nameField.text?.write(to :fileURL, atomically: true, encoding: .utf8)
-        //print(nameField.text!)
-        //print(SendData.sendName() + "1")
         try? classLabel.text?.write(to :fileCnameURL, atomically: true, encoding: .utf8)
-        //print(SendData.sendName() + "2")
         try? fromLabel.text?.write(to :fileFnameURL, atomically: true, encoding: .utf8)
-        //print(SendData.sendName() + "3")
+        try? profileImage.image?.pngData()?.write(to: imageURL)
+        usersImageDictionary[MypeerID]!.name = SendData.sendName()
+        usersImageDictionary[MypeerID]!.cname = SendData.sendClass()
+        usersImageDictionary[MypeerID]!.fname = SendData.sendFrom()
+        usersImageDictionary[MypeerID]!.image = SendData.sendImage()
+        let msg = usersImageDictionary[MypeerID]
+        do {
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(msg)
+            try MySession.send(jsonData, toPeers: MySession.connectedPeers, with: MCSessionSendDataMode.unreliable)
+        } catch {
+            print("Error sending data: \(String(describing: error.localizedDescription))")
+        }
         // "更新"を押したらキーボード消える
         nameField.endEditing(true)
     }
@@ -59,7 +67,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
             // 「.camera」にすればカメラを起動できる
             pickerView.sourceType = .photoLibrary
             // デリゲート
-            pickerView.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            pickerView.delegate = self
             // ビューに表示
             self.present(pickerView, animated: true)
         }
@@ -92,7 +100,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         super.viewDidLoad()
         
-        //print(SendData.sendName())
+        print(SendData.sendName())
         
         classPicker.delegate = self
         
@@ -128,7 +136,6 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         
         nameField.keyboardType = UIKeyboardType.default
         //self.profileImage.image = SendData.sendImage()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -139,13 +146,12 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     //完了を押すとkeyboardを閉じる処理
     func textFieldShouldReturn(_ nameField: UITextField) -> Bool {
         /*
-        func sendName(_ sender: Any) {
-            try? nameField.text!.write(to: fileURL,atomically: true,encoding: .utf8)
-            print(nameField.text!)
-            
-        }
-        */
-
+         func sendName(_ sender: Any) {
+         try? nameField.text!.write(to: fileURL,atomically: true,encoding: .utf8)
+         print(nameField.text!)
+         
+         }
+         */
         //Keyboardを閉じる
         nameField.resignFirstResponder()
         
@@ -185,25 +191,24 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     }
     
     // 写真を選んだ後に呼ばれる処理
-   /* private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        // 選択した写真を取得する
-        let image = info[.originalImage] as! UIImage
-        // ビューに表示する
-        self.ImageView.image = image
-        // 写真を選ぶビューを引っ込める
-        self.dismiss(animated: true)
-    }*/
+    /* private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+     // 選択した写真を取得する
+     let image = info[.originalImage] as! UIImage
+     // ビューに表示する
+     self.ImageView.image = image
+     // 写真を選ぶビューを引っ込める
+     self.dismiss(animated: true)
+     }*/
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        print("test")
         // ビューに表示する
         guard let _:UIImage = image, let data = image.pngData() else {
             return
         }
-        try? data.write(to: imageURL)
         self.profileImage.image = image
-        
         
         profileImage.layer.cornerRadius = 50
         profileImage.clipsToBounds = true
@@ -212,38 +217,36 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         self.dismiss(animated: true)
     }
 }
-
 /*struct UserData{
-    let : String
-    let image: UIImage?
-}
-
-extension UserData: Decodable {
-    enum CodingKeys: String, CodingKey {
-        case title
-        case image
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        title = try values.decode(String.self, forKey: .title)
-        
-        let imageDataBase64String = try values.decode(String.self, forKey: .image)
-        if let data = Data(base64Encoded: imageDataBase64String) {
-            image = UIImage(data: data)
-        } else {
-            image = nil
-        }
-    }
-}
-extension UserData: Encodable {
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(title, forKey: .title)
-        
-        if let image = image, let imageData = image.pngData() {
-            let imageDataBase64String = imageData.base64EncodedString()
-            try container.encode(imageDataBase64String, forKey: .image)
-        }
-    }
-}*/
+ let : String
+ let image: UIImage?
+ }
+ extension UserData: Decodable {
+ enum CodingKeys: String, CodingKey {
+ case title
+ case image
+ }
+ 
+ init(from decoder: Decoder) throws {
+ let values = try decoder.container(keyedBy: CodingKeys.self)
+ title = try values.decode(String.self, forKey: .title)
+ 
+ let imageDataBase64String = try values.decode(String.self, forKey: .image)
+ if let data = Data(base64Encoded: imageDataBase64String) {
+ image = UIImage(data: data)
+ } else {
+ image = nil
+ }
+ }
+ }
+ extension UserData: Encodable {
+ func encode(to encoder: Encoder) throws {
+ var container = encoder.container(keyedBy: CodingKeys.self)
+ try container.encode(title, forKey: .title)
+ 
+ if let image = image, let imageData = image.pngData() {
+ let imageDataBase64String = imageData.base64EncodedString()
+ try container.encode(imageDataBase64String, forKey: .image)
+ }
+ }
+ }*/

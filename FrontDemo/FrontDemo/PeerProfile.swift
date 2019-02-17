@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 class PeerProfile: UIViewController {
     
     @IBOutlet weak var peerImage: UIImageView!

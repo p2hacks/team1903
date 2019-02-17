@@ -25,7 +25,13 @@ class PeerProfile: UIViewController {
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.peerName.text = String(name[name.startIndex..<name.index(of: ":")!])
+        self.peerClassName.text = cname
+        self.peerFromName.text = fname
+        self.peerImage.image = image!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

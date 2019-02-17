@@ -35,7 +35,7 @@ class Communication:NSObject, MCNearbyServiceBrowserDelegate, MCSessionDelegate,
         if ids.index(of: peerID) == nil {
             print("a")
             ids.append(peerID)
-            usersImageDictionary[peerID] = UserData(name: SendData.sendName() + " : ", cname: SendData.sendClass(), fname: SendData.sendFrom(), image: SendData.sendImage())
+            usersImageDictionary[peerID] = UserData(name: SendData.sendName(), cname: SendData.sendClass(), fname: SendData.sendFrom(), image: SendData.sendImage())
         }
         
         super.init()

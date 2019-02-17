@@ -326,7 +326,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BH-Ur-eo8">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="アプリタイトル" id="EKR-dM-4wL">
+                                    <navigationItem title="ナルトモ！" id="EKR-dM-4wL">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="lic-hf-CVf">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uhR-op-paQ">
                                                 <rect key="frame" x="236" y="7" width="123" height="30"/>

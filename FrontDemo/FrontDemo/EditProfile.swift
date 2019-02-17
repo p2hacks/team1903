@@ -124,11 +124,14 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         //改行ボタンを完了ボタンに変更
         
         //nameField.placeholder = "入力してください"
-        nameField.text = SendData.sendName()
+        let name = SendData.sendName()
+        nameField.text = String(name[name.startIndex..<name.index(of: ":")!])
         
         classLabel.text = SendData.sendClass()
         
         fromLabel.text = SendData.sendFrom()
+        
+        profileImage.image = SendData.sendImage()
         //文字が何も入力されていない時に表示される文字
         
         self.view.addSubview(nameField)

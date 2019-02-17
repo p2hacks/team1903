@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             ids.remove(at: index)
             ids.append(self.communication.peerID)
         }
-        let msg = (SendData.sendName() + " : " + self.chatTextField.text!).data(using: String.Encoding.utf8, allowLossyConversion: false)
+        let msg = (SendData.sendName() + self.chatTextField.text!).data(using: String.Encoding.utf8, allowLossyConversion: false)
         do {
             try self.communication.session.send(msg!, toPeers: self.communication.session.connectedPeers, with: MCSessionSendDataMode.unreliable)
             
@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             print("Error sending data: \(String(describing: error.localizedDescription))")
         }
         
-        usersImageDictionary[self.communication.peerID]!.name = SendData.sendName() + " : " + self.chatTextField.text!
+        usersImageDictionary[self.communication.peerID]!.name = SendData.sendName() + self.chatTextField.text!
         self.chatTableView.reloadData()
         // "送信"を押したらキーボード消える
         chatTextField.endEditing(true)
@@ -171,7 +171,7 @@ extension ViewController: UITableViewDataSource {
         
         let idsIndex = ids.count - (indexPath.row + 1)
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text =  usersImageDictionary[ids[idsIndex]]!.name + " : "
+        cell.textLabel?.text =  usersImageDictionary[ids[idsIndex]]!.name
         cell.accessoryType = .disclosureIndicator
         
         let Resize:CGSize = CGSize.init(width: 50, height: 50)

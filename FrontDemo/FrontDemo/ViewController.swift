@@ -9,7 +9,7 @@
 import UIKit
 import MultipeerConnectivity
 let reuseIdentifier = "reuseIdentifier"
-class ViewController: UIViewController, UITableViewDelegate, CommunicationDelegate{
+class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, CommunicationDelegate{
     func dataLoad() {
         print("aaa")
         self.chatTableView.reloadData()
@@ -77,9 +77,20 @@ class ViewController: UIViewController, UITableViewDelegate, CommunicationDelega
         chatTableView.estimatedRowHeight=50
         chatTableView.rowHeight = UITableView.automaticDimension
         
+        chatTextField.delegate = self
+        
+        chatTextField.returnKeyType = .done
+        //改行ボタンを完了ボタンに変更
+        
+        self.view.addSubview(chatTextField)
+        //viewにtextfieldをsubviewとして追加
+        
+        chatTextField.keyboardType = UIKeyboardType.default
+        
         self.communication.delegate = self
     }
     
+    /*
     // キーボード関連 - ここから
     // Notification発行
     func configureObserver() {
@@ -115,6 +126,32 @@ class ViewController: UIViewController, UITableViewDelegate, CommunicationDelega
     }
     
     // ここまで
+    */
+    
+    //完了を押すとkeyboardを閉じる処理
+    func textFieldShouldReturn(_ chatTextField: UITextField) -> Bool {
+        /*
+         func sendName(_ sender: Any) {
+         try? nameField.text!.write(to: fileURL,atomically: true,encoding: .utf8)
+         print(nameField.text!)
+         
+         }
+         */
+        //Keyboardを閉じる
+        chatTextField.resignFirstResponder()
+        
+        return true
+        
+    }
+    
+    //keyboard以外の画面を押すと、keyboardを閉じる処理
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if (self.chatTextField.isFirstResponder) {
+            self.chatTextField.resignFirstResponder()
+        }
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

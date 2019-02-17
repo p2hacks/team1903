@@ -11,10 +11,14 @@ import UIKit
 class PeerProfile: UIViewController {
     
     @IBOutlet weak var peerImage: UIImageView!
-    
     @IBOutlet weak var peerName: UILabel!
     @IBOutlet weak var peerClassName: UILabel!
     @IBOutlet weak var peerFromName: UILabel!
+    
+    var name = "a"
+    var cname = "b"
+    var fname = "c"
+    var image: UIImage!
     
     @IBAction func moveChat(_ sender: UIButton) {
         let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "Chat") as! ViewController
@@ -24,7 +28,11 @@ class PeerProfile: UIViewController {
     
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+        self.peerName.text = name
+        self.peerClassName.text = cname
+        self.peerFromName.text = fname
+        self.peerImage.image = image!
     }
     
     override func didReceiveMemoryWarning() {

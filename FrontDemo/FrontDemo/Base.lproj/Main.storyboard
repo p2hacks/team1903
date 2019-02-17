@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Js2-ZZ-gfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3200.8000000000002" y="124.58770614692655"/>
+            <point key="canvasLocation" x="430" y="1208"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wf6-kZ-AL8">
@@ -413,7 +413,7 @@
         <image name="default_image" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="REc-La-YoW"/>
+        <segue reference="PRf-gI-a5x"/>
         <segue reference="SSf-DB-JVh"/>
     </inferredMetricsTieBreakers>
 </document>

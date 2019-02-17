@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import MultipeerConnectivity
 
-class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate{
+class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -17,7 +18,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == classPicker{
             return Datalist1.count
-    }
+        }
         else{
             return Datalist2.count
         }
@@ -29,12 +30,21 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
         print(fileURL)
         print(fileCnameURL)
         try? nameField.text?.write(to :fileURL, atomically: true, encoding: .utf8)
-        print(nameField.text!)
-        print(SendData.sendName() + "1")
         try? classLabel.text?.write(to :fileCnameURL, atomically: true, encoding: .utf8)
-        print(SendData.sendName() + "2")
         try? fromLabel.text?.write(to :fileFnameURL, atomically: true, encoding: .utf8)
-        print(SendData.sendName() + "3")
+        try? profileImage.image?.pngData()?.write(to: imageURL)
+        usersImageDictionary[MypeerID]!.name = SendData.sendName()
+        usersImageDictionary[MypeerID]!.cname = SendData.sendClass()
+        usersImageDictionary[MypeerID]!.fname = SendData.sendFrom()
+        usersImageDictionary[MypeerID]!.image = SendData.sendImage()
+        let msg = usersImageDictionary[MypeerID]
+        do {
+            let jsonEncoder = JSONEncoder()
+            let jsonData = try jsonEncoder.encode(msg)
+            try MySession.send(jsonData, toPeers: MySession.connectedPeers, with: MCSessionSendDataMode.unreliable)
+        } catch {
+            print("Error sending data: \(String(describing: error.localizedDescription))")
+        }
         // "更新"を押したらキーボード消える
         nameField.endEditing(true)
     }
@@ -59,7 +69,7 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
             // 「.camera」にすればカメラを起動できる
             pickerView.sourceType = .photoLibrary
             // デリゲート
-            pickerView.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            pickerView.delegate = self
             // ビューに表示
             self.present(pickerView, animated: true)
         }
@@ -196,11 +206,11 @@ class EditProfile: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, 
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        print("test")
         // ビューに表示する
         guard let _:UIImage = image, let data = image.pngData() else {
             return
         }
-        try? data.write(to: imageURL)
         self.profileImage.image = image
         // 写真を選ぶビューを引っ込める
         self.dismiss(animated: true)

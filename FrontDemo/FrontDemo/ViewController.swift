@@ -7,29 +7,79 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
-class ViewController: UIViewController {
+let reuseIdentifier = "reuseIdentifier"
+
+class ViewController: UIViewController, UITableViewDelegate, CommunicationDelegate{
+    func dataLoad() {
+        print("aaa")
+        self.chatTableView.reloadData()
+    }
+    
+    let communication = Communication()
     
     @IBOutlet weak var chatTableView: UITableView!
     @IBOutlet weak var chatTextField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print(SendData.sendName() + "<")
-    }
-    
-    
     @IBAction func moveEditProfile(_ sender: UIButton) {
         let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "EditProfile") as! EditProfile
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
-    
-    
     @IBAction func sendChat(_ sender: Any) {
+        if let index = ids.index(of: self.communication.peerID) {
+            ids.remove(at: index)
+            ids.append(self.communication.peerID)
+        }
+        let msg = (SendData.sendName() + " : " + self.chatTextField.text!).data(using: String.Encoding.utf8, allowLossyConversion: false)
+        do {
+            try self.communication.session.send(msg!, toPeers: self.communication.session.connectedPeers, with: MCSessionSendDataMode.unreliable)
+            
+        } catch {
+            print("Error sending data: \(String(describing: error.localizedDescription))")
+        }
         
-        
+        usersImageDictionary[self.communication.peerID]!.name = SendData.sendName() + " : " + self.chatTextField.text!
+        self.chatTableView.reloadData()
         // "送信"を押したらキーボード消える
         chatTextField.endEditing(true)
+    }
+    
+    
+    func tableView(_ table: UITableView,didSelectRowAt indexPath: IndexPath) {
+        //let second = self.storyboard?.instantiateViewController(withIdentifier: "ViewProfile") as! ViewProfile
+        let idsIndex = ids.count - Int(indexPath.row) - 1
+        let selectID = ids[idsIndex]
+        let selectUserData = usersImageDictionary[selectID]
+        /*
+        let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "ViewProfile") as! ViewProfile
+        */
+        /*
+        secondViewController.name = selectUserData!.name
+        secondViewController.cname = selectUserData!.cname
+        secondViewController.fname = selectUserData!.fname
+        secondViewController.image = selectUserData!.image
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+        */
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.chatTableView.reloadData()
+        print(ids.count)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("helloviewDidLoad")
+        chatTableView.dataSource = self
+        chatTableView.delegate = self
+        chatTableView.tableFooterView = UIView(frame: .zero)
+        
+        chatTableView.estimatedRowHeight=50
+        chatTableView.rowHeight = UITableView.automaticDimension
+        
+        self.communication.delegate = self
     }
     
     // キーボード関連 - ここから
@@ -42,7 +92,6 @@ class ViewController: UIViewController {
                                  name: UIResponder.keyboardWillHideNotification, object: nil)
         //print("Notificationを発行")
     }
-    
     // キーボードが表示時に画面をずらす。
     @objc func keyboardWillShow(_ notification: Notification?) {
         guard let rect = (notification?.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
@@ -68,12 +117,51 @@ class ViewController: UIViewController {
     }
     
     // ここまで
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
 
+extension ViewController: UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+        print(usersImageDictionary.count)
+        return usersImageDictionary.count
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: reuseIdentifier)
+        
+        let idsIndex = ids.count - (indexPath.row + 1)
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.text =  usersImageDictionary[ids[idsIndex]]!.name + " : "
+        cell.accessoryType = .disclosureIndicator
+        
+        let Resize:CGSize = CGSize.init(width: 50, height: 50)
+        cell.imageView!.image =
+            usersImageDictionary[ids[idsIndex]]!.image?.resize(size: Resize)
+        return cell
+    }
+}
+
+extension UIImage {
+    func resize(size _size: CGSize) -> UIImage? {
+        let widthRatio = _size.width / size.width
+        let heightRatio = _size.height / size.height
+        let ratio = widthRatio < heightRatio ? widthRatio : heightRatio
+        
+        let resizedSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+        
+        UIGraphicsBeginImageContextWithOptions(resizedSize, false, 0.0) // 変更
+        draw(in: CGRect(origin: .zero, size: resizedSize))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return resizedImage
+    }
 }
 

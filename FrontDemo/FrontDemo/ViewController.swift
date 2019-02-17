@@ -48,16 +48,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         let idsIndex = ids.count - Int(indexPath.row) - 1
         let selectID = ids[idsIndex]
         let selectUserData = usersImageDictionary[selectID]
-        /*
-         let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "ViewProfile") as! ViewProfile
-         */
-        /*
-         secondViewController.name = selectUserData!.name
-         secondViewController.cname = selectUserData!.cname
-         secondViewController.fname = selectUserData!.fname
-         secondViewController.image = selectUserData!.image
-         self.navigationController?.pushViewController(secondViewController, animated: true)
-         */
+        let secondViewController = self.storyboard!.instantiateViewController(withIdentifier: "PeerProfile") as! PeerProfile
+        secondViewController.name = selectUserData!.name
+        secondViewController.cname = selectUserData!.cname
+        secondViewController.fname = selectUserData!.fname
+        secondViewController.image = selectUserData!.image
+//        self.navigationItem.title
+//        secondViewController.modalTransitionStyle = .
+        self.present(secondViewController, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(secondViewController, animated: true)
     }
     
     
